@@ -9,8 +9,9 @@
 </head>
 
 <body>
-  <button onclick="liberandoInternetFacebook()">CurtirFacebook</button>
-
+  <div>
+    <button onclick="liberandoInternetFacebook()" class="curtirFacebook">CurtirFacebook</button>
+  </div>
   <script>
     function liberandoInternetFacebook() {
       alert("Liberando o acesso a Internet ! Aguarde !");
@@ -18,7 +19,7 @@
       setTimeout(function () {
 
         // DESCOBRIR QUAL COMANDO REDIRECIONAMENTO 
-
+        navFacebook();window
 
 
       }, 3000);
@@ -59,6 +60,9 @@
 
     }
     window.onload = onLoad;
+    function navFacebook() {
+      <a id="facebook"></a>
+    }
   </script>
 </body>
 
