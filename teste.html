@@ -7,12 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>:: HotSpot MK ::</title>
   <link href="teste.css" rel="stylesheet">
-
-
 </head>
 
 <body>
-
   <div class="titulo">
     <h1> Faça parte em uma das nossas redes sociais para liberar o acesso a internet ! </h1>
   </div>
@@ -27,21 +24,6 @@
     <button class="btn-instagram" onclick="liberandoInternetFacebook()">Seguir Instagram</button>
   </div>
 
-  <script>
-    function liberandoInternetFacebook() {
-      
-      alert("Liberando o acesso a Internet ! Aguarde !");
-      // COLOCAR  AQUI O SCRIPT DE USUARIO E SENHA PARA O MIKROTIK AUTENTICAR
-      setTimeout(function () {
-
-        // DESCOBRIR QUAL COMANDO REDIRECIONAMENTO | instanciado final > document.getElementById('facebook').setAttribute('href', facebook)
-        window.location.href =`${facebook}`;
-
-
-      }, 3000);
-
-    }
-  </script>
   <script>
     function getMobileOperatingSystem() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -76,9 +58,23 @@
 
     }
     window.onload = onLoad;
+
+    function liberandoInternetFacebook() {
+
+      alert("Liberando o acesso a Internet ! Aguarde !");
+      // COLOCAR  AQUI O SCRIPT DE USUARIO E SENHA PARA O MIKROTIK AUTENTICAR
+      setTimeout(function () {
+
+        // DESCOBRIR QUAL COMANDO REDIRECIONAMENTO | instanciado final > document.getElementById('facebook').setAttribute('href', facebook)
+        window.location.href = `${facebook}`;
+
+
+      }, 3000);
+
+    }
   </script>
 
-  </script>
+
 </body>
 
 </html>
