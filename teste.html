@@ -7,75 +7,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>:: HotSpot MK ::</title>
   <link href="teste.css" rel="stylesheet">
-
-
 </head>
 
 <body>
-
   <div class="titulo">
     <h1> Faça parte em uma das nossas redes sociais para liberar o acesso a internet ! </h1>
   </div>
 
   <div class="facebook">
     <img src="/images/icon-facebook.png" class="icon-facebook" alt=""><br>
-    <button class="curtir-facebook" onclick="liberandoInternetFacebook()">Curtir Facebook</button>
-    </div>
+    <button class="btn-facebook" onclick="liberandoInternetFacebook()">Curtir Facebook</button>
+  </div>
 
-    <div class="instagram">
-      <img src="/images/icon-instagram.png" class="icon-instagram" alt=""><br>
-      <button class="seguir-instagram" onclick="liberandoInternetFacebook()">Seguir Instagram</button>
-    </div>
+  <div class="instagram">
+    <img src="/images/icon-instagram.png" class="icon-instagram" alt=""><br>
+    <button class="btn-instagram" onclick="liberandoInternetFacebook()">Seguir Instagram</button>
+  </div>
 
-    <script>
-      function liberandoInternetFacebook() {
-        alert("Liberando o acesso a Internet ! Aguarde !");
-        // COLOCAR  AQUI O SCRIPT DE USUARIO E SENHA PARA O MIKROTIK AUTENTICAR
-        setTimeout(function () {
-
-          // DESCOBRIR QUAL COMANDO REDIRECIONAMENTO 
-
-
-
-        }, 3000);
-
+  <script>
+    function getMobileOperatingSystem() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i)) {
+        return 'iOS';
       }
-    </script>
-    <script>
-      function getMobileOperatingSystem() {
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i)) {
-          return 'iOS';
-        }
-        else if (userAgent.match(/Android/i)) {
-          return 'Android';
-        }
-        else {
-          return 'unknown';
-        }
+      else if (userAgent.match(/Android/i)) {
+        return 'Android';
       }
-
-      function onLoad() {
-        var instagram = "http://www.instagram.com/fantingaming";
-        var facebook = "http://www.facebook.com/gaming/fantingaming";
-        switch (getMobileOperatingSystem()) {
-          case 'Android':
-            instagram = "intent://www.instagram.com/fantingaming/#Intent;package=com.instagram.android;scheme=https;end";
-            facebook = "intent://www.facebook.com/gamingapp#Intent;package=com.facebook.games;scheme=https;end";
-            break;
-          case 'iOS':
-            instagram = "instagram://user?username=fantingaming";
-            facebook = "http://www.facebook.com/gaming/fantingaming";
-            break;
-          default:
-            break;
-        }
-        document.getElementById('instagram').setAttribute('href', instagram);
-        document.getElementById('facebook').setAttribute('href', facebook);
-
+      else {
+        return 'unknown';
       }
-      window.onload = onLoad;
-    </script>
+    }
+
+    function onLoad() {
+      var instagram = "http://www.instagram.com/fantingaming";
+      var facebook = "http://www.facebook.com/gaming/fantingaming";
+      switch (getMobileOperatingSystem()) {
+        case 'Android':
+          instagram = "intent://www.instagram.com/fantingaming/#Intent;package=com.instagram.android;scheme=https;end";
+          facebook = "intent://www.facebook.com/gamingapp#Intent;package=com.facebook.games;scheme=https;end";
+          break;
+        case 'iOS':
+          instagram = "instagram://user?username=fantingaming";
+          facebook = "http://www.facebook.com/gaming/fantingaming";
+          break;
+        default:
+          break;
+      }
+      document.getElementById('instagram').setAttribute('href', instagram);
+      document.getElementById('facebook').setAttribute('href', facebook);
+
+    }
+    window.onload = onLoad;
+
+    function liberandoInternetFacebook() {
+
+      alert("Liberando o acesso a Internet ! Aguarde !");
+      // COLOCAR  AQUI O SCRIPT DE USUARIO E SENHA PARA O MIKROTIK AUTENTICAR
+      setTimeout(function () {
+
+        // DESCOBRIR QUAL COMANDO REDIRECIONAMENTO | instanciado final > document.getElementById('facebook').setAttribute('href', facebook)
+        window.location.href = `${facebook}`;
+
+
+      }, 3000);
+
+    }
+  </script>
+
+
 </body>
 
 </html>
